@@ -41,7 +41,25 @@ $hotels = [
 $park = 'Available';
 $no_park = 'Unavailable';
 
-var_dump($hotels);
+$select_parking = isset($_GET['select_parking']);
+$vote = $_GET['vote'];
+
+if ($select_parking) {
+    $hotels = hotelsWithParking($hotels, $park, $vote);
+}
+
+
+function hotelsWithParking($hotels, $park, $vote)
+{
+    $newHotelsList = [];
+    foreach ($hotels as $hotel) {
+        if ($hotel['parking'] == $park && $hotel['vote'] >= $vote) {
+            array_push($newHotelsList, $hotel);
+        }
+    }
+    return $newHotelsList;
+}
+//var_dump($hotels);
 ?>
 
 <!DOCTYPE html>
@@ -66,7 +84,6 @@ var_dump($hotels);
                         <label for="select_parking">Parking</label>
                         <option value="" disabled="disabled" selected>Choose</option>
                         <option value="true">Parking</option>
-                        <option value="false">No parking</option>
                     </select>
                 </div>
                 <div class="mb-3">
