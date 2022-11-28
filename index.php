@@ -77,18 +77,17 @@ function hotelsWithParking($hotels, $park, $vote)
     <div class="container">
         <h1 class="text-center py-3 text-primary">Hotels</h1>
         <div class="form_box py-5 px-5">
-            <h3 class="text-secondary">Filters</h3>
+            <h2 class="text-secondary mb-3">Filters</h2>
             <form action="index.php" method="get">
-                <div class="form-check mb-3">
-                    <select name="select_parking" id="select_parking">
-                        <label for="select_parking">Parking</label>
-                        <option value="" disabled="disabled" selected>Choose</option>
+                <div class="select mb-3">
+                    <select class="form-select w-25" name="select_parking" id="select_parking">
+                        <option selected>Choose</option>
                         <option value="true">Parking</option>
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label for="vote" class="form-label">Vote</label>
-                    <input type="number" name="vote" id="vote">
+                    <label for="vote" class="form-label text-secondary"><strong>Hotel ratings:</strong></label>
+                    <input type="number" class="form-control w-25" name="vote" id="vote">
                 </div>
                 <button class="btn btn-primary" type="submit">Filter</button>
                 <button class="btn btn-danger" type="reset">Reset</button>
