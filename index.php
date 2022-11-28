@@ -62,10 +62,12 @@ var_dump($hotels);
             <h3 class="text-secondary">Filters</h3>
             <form action="index.php" method="get">
                 <div class="form-check mb-3">
-                    <input class="form-check-input" type="checkbox" value="car_parking" id="car_parking">
-                    <label class="form-check-label" for="car_parking">
-                        Parking
-                    </label>
+                    <select name="select_parking" id="select_parking">
+                        <label for="select_parking">Parking</label>
+                        <option value="" disabled="disabled" selected>Choose</option>
+                        <option value="true">Parking</option>
+                        <option value="false">No parking</option>
+                    </select>
                 </div>
                 <div class="mb-3">
                     <label for="vote" class="form-label">Vote</label>
