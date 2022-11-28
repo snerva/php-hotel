@@ -108,7 +108,7 @@ function hotelsWithParking($hotels, $park, $vote)
                     <tr>
                         <th scope="row"> <?php echo $hotel['name'] ?> </th>
                         <td> <?php echo $hotel['description'] ?> </td>
-                        <td> <?php if ($hotel['parking'] === true) {
+                        <td> <?php if ($hotel['parking'] == 1) {
                                     echo $park;
                                 } else {
                                     echo $no_park;
