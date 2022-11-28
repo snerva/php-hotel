@@ -38,6 +38,8 @@ $hotels = [
     ],
 
 ];
+$park = 'Available';
+$no_park = 'Unavailable';
 
 var_dump($hotels);
 ?>
@@ -55,7 +57,24 @@ var_dump($hotels);
 
 <body>
     <div class="container">
-        <h1 class="text-center">Hotels</h1>
+        <h1 class="text-center py-3 text-primary">Hotels</h1>
+        <div class="form_box py-5 px-5">
+            <h3 class="text-secondary">Filters</h3>
+            <form action="index.php" method="get">
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" value="car_parking" id="car_parking">
+                    <label class="form-check-label" for="car_parking">
+                        Parking
+                    </label>
+                </div>
+                <div class="mb-3">
+                    <label for="vote" class="form-label">Vote</label>
+                    <input type="number" name="vote" id="vote">
+                </div>
+                <button class="btn btn-primary" type="submit">Filter</button>
+                <button class="btn btn-danger" type="reset">Reset</button>
+            </form>
+        </div>
         <table class="table">
             <thead>
                 <tr class="table-primary">
@@ -71,7 +90,11 @@ var_dump($hotels);
                     <tr>
                         <th scope="row"> <?php echo $hotel['name'] ?> </th>
                         <td> <?php echo $hotel['description'] ?> </td>
-                        <td> <?php echo $hotel['parking'] ?> </td>
+                        <td> <?php if ($hotel['parking'] === true) {
+                                    echo $park;
+                                } else {
+                                    echo $no_park;
+                                } ?> </td>
                         <td> <?php echo $hotel['vote'] ?> </td>
                         <td> <?php echo $hotel['distance_to_center'] ?> </td>
                     </tr>
